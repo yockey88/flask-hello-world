@@ -30,18 +30,18 @@ def creating():
     conn.close()
     return "Basketball Table Successfully Created"
 
-# @app.route('/db_insert')
-# def inserting():
-#     conn = psycopg2.connect('postgres://lab_10_postgre_user:yEHgdwGoczjfLI3JdgzAt0YSGN0zHha8@dpg-cj46mhd9aq047cahvoc0-a/lab_10_postgre')
-#     cur = conn.cursor()
-#     cur.execute('''
-#         INSERT INTO Basketball (First , Last , City , Name , Number)
-#         VALUES
-#             ('Jayson' , 'Taytum' , 'Boston' , 'Celtics' , 0) ,
-#             ('Stephen' , 'Curry' , 'San Francisco' , 'Warriors' , 30) ,
-#             ('Jayson' , 'Taytum' , 'Denver' , 'Nuggets' , 15) ,
-#             ('Jayson' , 'Taytum' , 'Boston' , 'Celtics' , 0);
-#     ''')
-#     conn.commit()
-#     conn.close()
-#     return "Basketball Table Successfully Created"
+@app.route('/db_insert')
+def inserting():
+    conn = psycopg2.connect('postgres://lab_10_postgre_user:yEHgdwGoczjfLI3JdgzAt0YSGN0zHha8@dpg-cj46mhd9aq047cahvoc0-a/lab_10_postgre')
+    cur = conn.cursor()
+    cur.execute('''
+        INSERT INTO Basketball (First , Last , City , Name , Number)
+        VALUES
+            ('Jayson' , 'Taytum' , 'Boston' , 'Celtics' , 0) ,
+            ('Stephen' , 'Curry' , 'San Francisco' , 'Warriors' , 30) ,
+            ('Nikola' , 'Jokic' , 'Denver' , 'Nuggets' , 15) ,
+            ('Kawhi' , 'Leonard' , 'Los Angeles' , 'Clippers' , 2);
+    ''')
+    conn.commit()
+    conn.close()
+    return "Basketball Table Successfully Populated"
